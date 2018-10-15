@@ -1,2 +1,2 @@
 ﻿  Source.cpp
-d:\gitcppproject\cppoop\1\1\source.cpp(27): error C3867: "Grinder::Start": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+  1.vcxproj -> D:\gitcppproject\cppOop\1\Debug\1.exe
