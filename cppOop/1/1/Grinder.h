@@ -1,0 +1,23 @@
+#pragma once
+class Grinder
+{
+private:
+
+	int x;
+	int y;
+	int *arr;
+	int size;
+
+public:
+	Grinder & operator = (const Grinder& secClas);
+	Grinder();
+	Grinder(const int num);
+	Grinder(int x, int y);
+	Grinder(const Grinder& secClas);
+	~Grinder();
+	void Show();
+};
+
+
+Grinder foo2();
+void foo(Grinder newC);
