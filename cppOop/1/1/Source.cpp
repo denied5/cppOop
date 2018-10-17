@@ -12,11 +12,14 @@ int main()
 
 	Grinder a(10);
 	a.Show();
-	Grinder b(5);
+	Grinder b(10);
+	b.setXY(1, 2);
 	b.Show();
-	a = b;
+	/*a = b;
 	a.Show();
-	b.Show();
+	b.Show();*/
+	if (a == b)
+		cout << "Equel" << endl;
 	system("PAUSE");
 	
 	return 0;

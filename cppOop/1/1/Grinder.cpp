@@ -16,6 +16,44 @@ Grinder & Grinder::operator=(const Grinder & secClas)
 	return *this;
 }
 
+bool Grinder::operator==(const Grinder & secClas)
+{
+	if (this->x != secClas.x)
+	return false;
+	if (this->y != secClas.y)
+		return false;
+	if (this->size != secClas.size)
+		return false;
+	for (int i = 0; i < this->size; i++)
+	{
+		if(this->arr[i] != secClas.arr[i])
+			return false;
+	}
+	return true;
+}
+
+bool Grinder::operator!=(const Grinder & secClas)
+{
+	if (this->x != secClas.x)
+		return true;
+	if (this->y != secClas.y)
+		return true;
+	if (this->size != secClas.size)
+		return true;
+	for (int i = 0; i < this->size; i++)
+	{
+		if (this->arr[i] != secClas.arr[i])
+			return true;
+	}
+	return false;
+}
+
+void Grinder::setXY(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+
 Grinder::Grinder()
 {
 	std::cout << this << " Constr" << std::endl;
