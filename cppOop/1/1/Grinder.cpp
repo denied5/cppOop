@@ -16,6 +16,29 @@ Grinder & Grinder::operator=(const Grinder & secClas)
 	return *this;
 }
 
+Grinder & Grinder::operator+(const Grinder & secClas)
+{
+	if (!secClas.arr && !secClas.x && !secClas.y)
+	{
+		return *this;
+	}
+
+	Grinder tmp;
+
+	tmp.size = this->size + secClas.size;
+	tmp.x = this->x + secClas.x;
+	tmp.y = this->y + secClas.y;
+
+	tmp.arr = new int[tmp.size];
+	for (int i = 0; i < tmp.size; i++)
+	{
+		tmp.arr[i] = i;
+	}
+
+	*this = tmp;
+	return *this;
+}
+
 bool Grinder::operator==(const Grinder & secClas)
 {
 	if (this->x != secClas.x)
@@ -96,9 +119,11 @@ Grinder::Grinder(const Grinder & secClas)
 }
 Grinder::~Grinder()
 {
-	std::cout << this << " Desteuctor" << std::endl;
-	if(this->arr)
-	delete[] this->arr;
+	if (this) {
+		std::cout << this << " Desteuctor" << std::endl;
+		if (this->arr)
+			delete[] this->arr;
+	}
 }
 inline void Grinder::Show()
 {
