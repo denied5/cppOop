@@ -1,4 +1,6 @@
 #pragma once
+class seeClaSS;
+
 class Grinder
 {
 private:
@@ -11,6 +13,8 @@ private:
 public:
 	Grinder & operator = (const Grinder& secClas);
 	Grinder & operator + (const Grinder& secClas);
+	Grinder & operator ++ ();
+	Grinder & operator ++(int value);
 	bool operator == (const Grinder& secClas);
 	bool operator != (const Grinder& secClas);
 	void setXY(int x, int y);
@@ -18,6 +22,7 @@ public:
 	Grinder(const int num);
 	Grinder(int x, int y);
 	Grinder(const Grinder& secClas);
+	friend void ChangeX(Grinder & cl, seeClaSS & cll);
 	~Grinder();
 	void Show();
 };

@@ -39,6 +39,30 @@ Grinder & Grinder::operator+(const Grinder & secClas)
 	return *this;
 }
 
+Grinder & Grinder::operator++()
+{
+	this->x++;
+	this->y++;
+	for (size_t i = 0; i < this->size; i++)
+	{
+		this->arr[i]++;
+	}
+	return *this;
+}
+//Return empty object
+Grinder & Grinder::operator++(int value)
+{
+	Grinder tmp(*this);
+	
+	this->x++;
+	this->y++;
+	for (size_t i = 0; i < this->size; i++)
+	{
+		this->arr[i]++;
+	}
+	return tmp;
+}
+
 bool Grinder::operator==(const Grinder & secClas)
 {
 	if (this->x != secClas.x)
@@ -53,6 +77,11 @@ bool Grinder::operator==(const Grinder & secClas)
 			return false;
 	}
 	return true;
+}
+
+void ChangeX(Grinder & cl, seeClaSS & cll)
+{
+	cl.x = -1; //get X from private field. Show how friend works
 }
 
 bool Grinder::operator!=(const Grinder & secClas)
@@ -104,18 +133,16 @@ Grinder::Grinder(int x1, int y1)
 }
 Grinder::Grinder(const Grinder & secClas)
 {
-	delete[] this->arr;
 	std::cout << "Copy Contructor" << std::endl;
 		
 		this->x = secClas.x;
 		this->y = secClas.y;
 		this->size = secClas.size;
-		this->arr = new int[this->size];
+		this->arr = new int[secClas.size];
 		for (int i = 0; i < this->size; i++)
 		{
 			this->arr[i] = secClas.arr[i];
 		}
-	
 }
 Grinder::~Grinder()
 {
@@ -152,3 +179,4 @@ Grinder foo2()
 	Grinder myTemp;
 	return myTemp;
 }
+
